@@ -14,7 +14,7 @@ module.exports = SpeedTyperInput = React.createClass({
 			<input 
 				type="text" 
 				placeholder="write here"
-				onchange={this.handleInputChange}
+				onChange={this.handleInputChange}
 			/>
 		);
 	}
