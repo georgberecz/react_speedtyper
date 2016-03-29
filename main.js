@@ -1,7 +1,10 @@
 "use strict";
 
-var Manipulation = require('./manipulation');
-var Message = require('./message');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var SpeedTyper = require('./speedTyper');
 
-var message = new Message();
-message.send();
+ReactDOM.render(
+  <SpeedTyper />,
+  document.getElementById('content')
+);
