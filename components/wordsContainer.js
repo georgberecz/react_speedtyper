@@ -47,10 +47,9 @@ module.exports = WordsContainer = React.createClass({
 		return single_words;
 	},
 	render: function() {
-		var single_words = this.buildSingleWords();
 		return (
 			<div className="speedTyperWords"> 
-				{single_words}
+				{this.buildSingleWords()}
 			</div>
 		);
 	}

@@ -13,9 +13,9 @@ module.exports = InputContainer = React.createClass({
 	render: function() {
 		return (
 			<input 
+				className="inputContainer"
 				type="text" 
 				value={this.props.text}
-				ref="myInput"
 				placeholder="write here"
 				onChange={this.handleInputChange}
 			/>

@@ -34,9 +34,7 @@ module.exports = StatisticsContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
-				<Statistics wpm={this.getWpm()} accuracy={this.getAccuracy()} />
-			</div>	
+			<Statistics wpm={this.getWpm()} accuracy={this.getAccuracy()} />
 		);
 	}
 });

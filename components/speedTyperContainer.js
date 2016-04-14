@@ -18,8 +18,7 @@ module.exports = SpeedTyperContainer = React.createClass({
 		var input = text;
 		if (!(timerStarted)) {
 			timerStarted = true;
-			var date = new Date();
-			time = date.getTime();
+			time = Date.now()
 		}
 		if (input.substr(input.length-1) == " ") {
 			writtenWords.push(input.trim());

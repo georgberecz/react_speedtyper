@@ -1,4 +1,4 @@
-"user strict"
+"user strict";
 var React = require('react');
 var Letter;
 
@@ -13,7 +13,7 @@ module.exports = Letter= React.createClass ({
 	},
 	render: function() {
 		return(
-			<span className={this.props.className}>
+			<span className={'letter ' + this.props.className}>
 				{this.props.char}
 			</span>
 		);

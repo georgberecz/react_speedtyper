@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 var React = require('react');
 var Statistics;
@@ -10,7 +10,7 @@ module.exports = Statistics = React.createClass ({
 	},
 	render: function() {
 		return(
-			<div>
+			<div className="statistics">
 				<div className="SpeedTyperStatistics">
 					Words per Minute: {this.props.wpm}
 				</div>

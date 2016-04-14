@@ -1,4 +1,4 @@
-"user strict"
+"user strict";
 var React = require('react');
 var Letter = require("./letter");
 var CurrentWordContainer;
