@@ -1,11 +1,32 @@
 "use strict";
 var React = require('react');
-var SpeedTyperContainer;
-var SpeedTyper = require("./speedTyper")
-var WordsContainer = require("./wordsContainer");
-var InputContainer = require("./inputContainer");
-var StatisticsContainer = require("./statisticsContainer");
+var SpeedTyper = require("../components/speedTyper")
+import { connect } from 'react-redux';
+import { handleInputChange } from '../actions';
 
+const mapStateToProps = (state) => {
+  return {
+    words: state.words,
+    currentText: state.text,
+    writtenWords: state.writtenWords,
+    time: state.time,
+    timerStarted: state.timerStarted
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputChange: (text) => dispatch(handleInputChange(text))
+  }
+};
+
+const SpeedTyperContainer = connect(
+	mapStateToProps, mapDispatchToProps
+)(SpeedTyper);
+
+export default SpeedTyperContainer
+
+/*
 module.exports = SpeedTyperContainer = React.createClass({
 	getInitialState: function() {
 		return {text: '', writtenWords:[], timerStarted: false, time:0};
@@ -13,7 +34,6 @@ module.exports = SpeedTyperContainer = React.createClass({
 	handleInputChange: function(text){
 		var timerStarted = this.state.timerStarted;
 		var time = this.state.time;
-		var currentCharacterIndex = text.length-1;
 		var writtenWords = this.state.writtenWords;
 		var input = text;
 		if (!(timerStarted)) {
@@ -42,4 +62,4 @@ module.exports = SpeedTyperContainer = React.createClass({
 			/>	
 		);
 	}
-});
+});*/

@@ -20,7 +20,7 @@
     "babel-polyfill": "^6.7.4",
     "bugger": "^2.3.0",
     "jest-cli": "^0.10.0",
-    "react-addons-test-utils": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8"
   },
   "scripts": {
     "test": "jest",

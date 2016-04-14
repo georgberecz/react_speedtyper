@@ -1,10 +1,17 @@
 "use strict";
 
 var React = require('react');
-var ReactDOM = require('react-dom');
-var SpeedTyperContainer = require('./components/speedTyperContainer');
+import {render} from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import speedTyperApp from './reducers'
+import SpeedTyperContainer from './containers/speedTyperContainer'
 
-ReactDOM.render(
-  <SpeedTyperContainer />,
+let store = createStore(speedTyperApp)
+
+render(
+  <Provider store={store}>
+  	<SpeedTyperContainer />
+  </Provider>,
   document.getElementById('content')
 );
