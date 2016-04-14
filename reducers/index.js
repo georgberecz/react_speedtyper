@@ -21,13 +21,14 @@ const speedTyperApp = (state = initialState, action) => {
 		case 'INPUT_CHANGE':
 			var timerStarted = state.timerStarted;
 			var time = state.time;
-			var writtenWords = state.writtenWords;
+			var writtenWords = state.writtenWords == undefined ? [] : state.writtenWords;
 			var input = action.payload;
 			if (!(state.timerStarted)) {
 				timerStarted = true;
 				time = Date.now()
 			}
 			if (input.substr(input.length-1) == " ") {
+				//if (writtenWords == undefined) writtenWords = [];
 				writtenWords.push(input.trim());
 				input = "";
 			}
