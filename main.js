@@ -2,9 +2,9 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var SpeedTyper = require('./components/speedTyperContainer');
+var SpeedTyperContainer = require('./components/speedTyperContainer');
 
 ReactDOM.render(
-  <SpeedTyper />,
+  <SpeedTyperContainer />,
   document.getElementById('content')
 );

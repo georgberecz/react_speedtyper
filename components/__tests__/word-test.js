@@ -1,13 +1,13 @@
 'use strict';
 
-jest.unmock('../speedTyperWord');
+jest.unmock('../word');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import SpeedTyperWord from '../speedTyperWord';
+import Word from '../word';
 
-describe('speedTyperWord', () => {
+describe('word', () => {
   var Wrapper = React.createClass({
     render: function() {
       return (
@@ -16,19 +16,19 @@ describe('speedTyperWord', () => {
     }
   });
 
-  var buildSpeedTyperWord = ((word) => {
+  var buildWord = ((word) => {
     let dom = TestUtils.renderIntoDocument(
         <Wrapper>
-        	<SpeedTyperWord word={word} />
+        	<Word word={word} />
         </Wrapper>
     );
 
-    return TestUtils.findRenderedDOMComponentWithClass(dom, "speedTyperWord")
+    return TestUtils.findRenderedDOMComponentWithClass(dom, "word")
   });
 
   it('sets word', () => {
-    let speedTyperWord = buildSpeedTyperWord("some text");
-    let text = speedTyperWord.childNodes[0]
+    let word = buildWord("some text");
+    let text = word.childNodes[0]
 	expect(text.textContent).toEqual('some text');
   });
 });

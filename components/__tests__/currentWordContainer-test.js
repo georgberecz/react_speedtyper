@@ -1,13 +1,13 @@
 'use strict';
 
-jest.unmock('../speedTyperCurrentWord');
+jest.unmock('../currentWordContainer');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import SpeedTyperCurrentWord from '../speedTyperCurrentWord';
+import CurrentWordContainer from '../currentWordContainer';
 
-describe('speedTyperCurrentWord', () => {
+describe('currentWordContainer', () => {
   var Wrapper = React.createClass({
     render: function() {
       return (
@@ -16,24 +16,22 @@ describe('speedTyperCurrentWord', () => {
     }
   });
 
-  var buildSpeedTyperCurrentWord = ((word, currentText) => {
+  var buildCurrentWordContainer = ((word, currentText) => {
     let dom = TestUtils.renderIntoDocument(
-        <Wrapper>
-        	<SpeedTyperCurrentWord word={word} currentText={currentText} />
-        </Wrapper>
+        	<CurrentWordContainer word={word} currentText={currentText} />
     );
 
-    return TestUtils.findRenderedDOMComponentWithClass(dom, "speedTyperCurrentWord")
+    return TestUtils.findRenderedDOMComponentWithClass(dom, "currentWordContainer")
   });
 
   it('sets spans according to correct letter', () => {
-    let speedTyperCurrentWord = buildSpeedTyperCurrentWord("we","wo");
+    let currentWordContainer = buildCurrentWordContainer("we","wo");
 
-    let correct_span = speedTyperCurrentWord.childNodes[0];
+    let correct_span = currentWordContainer.childNodes[0];
 	  expect(correct_span.textContent).toBe('w');
     expect(correct_span.className).toBe('correctLetter');
 
-    let incorrect_span = speedTyperCurrentWord.childNodes[1];
+    let incorrect_span = currentWordContainer.childNodes[1];
     expect(incorrect_span.textContent).toBe('e');
     expect(incorrect_span.className).toBe('incorrectLetter');
   });

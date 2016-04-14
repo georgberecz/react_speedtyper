@@ -1,8 +1,9 @@
 "use strict";
 var React = require('react');
-var SpeedTyperStatistics;
+var Statistics = require('./statistics.js')
+var StatisticsContainer;
 
-module.exports = SpeedTyperStatistics = React.createClass({
+module.exports = StatisticsContainer = React.createClass({
 	propTypes: {
 		time: React.PropTypes.number.isRequired,
 		writtenWords: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
@@ -32,16 +33,9 @@ module.exports = SpeedTyperStatistics = React.createClass({
 		return accuracy;
 	},
 	render: function() {
-		var wpm = this.getWpm();
-		var accuracy = this.getAccuracy();
 		return (
 			<div>
-				<div className="SpeedTyperStatistics">
-					Words per Minute: {wpm}
-				</div>
-				<div className="SpeedTyperStatistics">
-					Accuracy: {accuracy}%
-				</div>
+				<Statistics wpm={this.getWpm()} accuracy={this.getAccuracy()} />
 			</div>	
 		);
 	}

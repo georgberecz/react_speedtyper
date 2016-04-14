@@ -1,15 +1,15 @@
-"user strict"
+"use strict"
 var React = require('react');
-var SpeedTyperWord;
+var Word;
 
 
-module.exports = SpeedTyperWord= React.createClass ({
+module.exports = Word= React.createClass ({
 	propTypes: {
 		word: React.PropTypes.string.isRequired,
 	},
 	render: function() {
 		return(
-			<div className="speedTyperWord">
+			<div className="word">
 				{this.props.word}
 			</div>
 		);

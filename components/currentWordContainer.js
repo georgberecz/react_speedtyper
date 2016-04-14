@@ -1,9 +1,10 @@
 "user strict"
 var React = require('react');
-var SpeedTyperCurrentWord;
+var Letter = require("./letter");
+var CurrentWordContainer;
 
 
-module.exports = SpeedTyperCurrentWord= React.createClass ({
+module.exports = CurrentWordContainer = React.createClass ({
 	propTypes: {
 		word: React.PropTypes.string.isRequired,
 		currentText: React.PropTypes.string.isRequired
@@ -15,12 +16,12 @@ module.exports = SpeedTyperCurrentWord= React.createClass ({
 		for (var i = 0; i < word.length; i++) {
 			if (i < currentText.length) {
 				if (word.charAt(i) == currentText.charAt(i)) {
-					singleCharacters.push(<span className="correctLetter">{word.charAt(i)}</span>)
+					singleCharacters.push(<Letter className="correctLetter" char={word.charAt(i)} />)
 				} else {
-					singleCharacters.push(<span className="incorrectLetter">{word.charAt(i)}</span>)
+					singleCharacters.push(<Letter className="incorrectLetter" char={word.charAt(i)} />)
 				}
 			} else {
-				singleCharacters.push(<span>{word.charAt(i)}</span>)
+				singleCharacters.push(<Letter char={word.charAt(i)} />)
 			}
 
 		}
@@ -29,7 +30,7 @@ module.exports = SpeedTyperCurrentWord= React.createClass ({
 	render: function() {
 		var singleCharacters = this.buildSingleCharacters();
 		return(
-			<div className="speedTyperCurrentWord">
+			<div className="currentWordContainer">
 				{singleCharacters}
 			</div>
 		);
