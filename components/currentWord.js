@@ -1,10 +1,10 @@
 "user strict";
 var React = require('react');
-var Letter = require("./letter");
-var CurrentWordContainer;
+var Letter = require("../components/letter");
+var CurrentWord;
 
 
-module.exports = CurrentWordContainer = React.createClass ({
+module.exports = CurrentWord = React.createClass ({
 	propTypes: {
 		word: React.PropTypes.string.isRequired,
 		currentText: React.PropTypes.string.isRequired
@@ -30,7 +30,7 @@ module.exports = CurrentWordContainer = React.createClass ({
 	render: function() {
 		var singleCharacters = this.buildSingleCharacters();
 		return(
-			<div className="currentWordContainer">
+			<div className="currentWord">
 				{singleCharacters}
 			</div>
 		);

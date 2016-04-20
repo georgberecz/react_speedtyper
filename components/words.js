@@ -1,10 +1,10 @@
 "use strict";
 var React = require('react');
-var Word = require("./word");
-var CurrentWordContainer = require("./currentWordContainer");
-var WordsContainer;
+var Word = require("../components/word");
+var CurrentWord = require("./currentWord");
+var Words;
 
-module.exports = WordsContainer = React.createClass({
+module.exports = Words = React.createClass({
 	propTypes: {
 		words: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 		writtenWords: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
@@ -22,7 +22,7 @@ module.exports = WordsContainer = React.createClass({
 		this.props.words.forEach(function(word, i) {
 			if (i === currentWordIndex) {
 				single_words.push(
-					<CurrentWordContainer word={word} currentText={currentText} />	
+					<CurrentWord word={word} currentText={currentText} />	
 				);
 			} else {
 				if (i < writtenWords.length) {

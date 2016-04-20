@@ -5,13 +5,13 @@ import {render} from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import speedTyperApp from './reducers'
-import SpeedTyperContainer from './containers/speedTyperContainer'
+import SpeedTyper from './components/speedTyper'
 
 let store = createStore(speedTyperApp)
 
 render(
   <Provider store={store}>
-  	<SpeedTyperContainer />
+  	<SpeedTyper />
   </Provider>,
   document.getElementById('content')
 );

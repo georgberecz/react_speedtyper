@@ -1,8 +1,8 @@
 "use strict";
 var React = require('react');
-var InputContainer;
+var Input;
 
-module.exports = InputContainer = React.createClass({
+module.exports = Input = React.createClass({
 	propTypes: {
 		onInputChange: React.PropTypes.func.isRequired,
 		text: React.PropTypes.string.isRequired,
@@ -13,7 +13,7 @@ module.exports = InputContainer = React.createClass({
 	render: function() {
 		return (
 			<input 
-				className="inputContainer"
+				className="input"
 				type="text" 
 				value={this.props.text}
 				placeholder="write here"
