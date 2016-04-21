@@ -20,7 +20,7 @@ describe('speedTyperApp reducer', () => {
   	expect(
   		speedTyperApp([], {
   			type: 'INPUT_CHANGE',
-  			payload: "blub"})
+  			payload: {text: "blub"}})
   	).toEqual(
   		{
   			text: "blub",
@@ -36,7 +36,7 @@ describe('speedTyperApp reducer', () => {
   	expect(
   		speedTyperApp([], {
   			type: 'INPUT_CHANGE',
-  			payload: "blub "})
+  			payload: {text: "blub "}})
   	).toEqual(
   		{
   			text: "",
@@ -46,5 +46,4 @@ describe('speedTyperApp reducer', () => {
   		}
   	);
   });
-
 });

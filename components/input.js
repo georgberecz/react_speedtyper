@@ -5,7 +5,8 @@ var Input;
 module.exports = Input = React.createClass({
 	propTypes: {
 		onInputChange: React.PropTypes.func.isRequired,
-		text: React.PropTypes.string.isRequired,
+		gameStarted: React.PropTypes.bool.isRequired,
+		text: React.PropTypes.string.isRequired
 	},
 	handleInputChange: function(e) {
 		this.props.onInputChange(e.target.value);
@@ -15,6 +16,7 @@ module.exports = Input = React.createClass({
 			<input 
 				className="input"
 				type="text" 
+				disabled={!(this.props.gameStarted)}
 				value={this.props.text}
 				placeholder="write here"
 				onChange={this.handleInputChange}

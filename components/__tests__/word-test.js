@@ -1,11 +1,11 @@
 'use strict';
 
-jest.unmock('../word');
+jest.unmock('../Word');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import Word from '../word';
+import Word from '../Word';
 
 describe('word', () => {
   var Wrapper = React.createClass({

@@ -1,12 +1,13 @@
 "use strict";
 var React = require('react');
-var Input = require('../components/input.js')
+var Input = require('../components/Input.js')
 import { handleInputChange } from '../actions';
 import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
 	return {
 		text: state.text,
+		gameStarted: state.gameStarted
 	};
 };
 

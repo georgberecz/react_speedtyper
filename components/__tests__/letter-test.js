@@ -1,11 +1,11 @@
 "use strict";
 
-jest.unmock('../letter');
+jest.unmock('../Letter');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import Letter from '../letter';
+import Letter from '../Letter';
 
 describe('letter', () => {
   var Wrapper = React.createClass({

@@ -6,7 +6,8 @@ var Statistics;
 module.exports = Statistics = React.createClass ({
 	propTypes: {
 		accuracy: React.PropTypes.number.isRequired,
-		wpm: React.PropTypes.number.isRequired
+		wpm: React.PropTypes.number.isRequired,
+		time: React.PropTypes.number.isRequired
 	},
 	render: function() {
 		return(
@@ -16,6 +17,9 @@ module.exports = Statistics = React.createClass ({
 				</div>
 				<div className="SpeedTyperStatistics">
 					Accuracy: {this.props.accuracy}%
+				</div>
+				<div className="SpeedTyperStatistics"> 
+					Time: {this.props.time}s
 				</div>
 			</div>
 		);

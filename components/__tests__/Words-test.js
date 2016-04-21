@@ -1,60 +1,60 @@
 'use strict';
 
-jest.unmock('../wordsContainer');
+jest.unmock('../Words');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import WordsContainer from "../wordsContainer";
-import Word from "../word";
-import CurrentWordContainer from "../currentWordContainer";
-import Letter from "../letter";
+import Words from "../Words";
+import Word from "../Word";
+import CurrentWord from "../CurrentWord";
+import Letter from "../Letter";
 
 Word.mockImplementation(() => <div />);
-CurrentWordContainer.mockImplementation(() => <div />);
+CurrentWord.mockImplementation(() => <div />);
 Letter.mockImplementation(() => <div />);
 
-describe('WordsContainer', () => {
+describe('Words', () => {
 	
 	it('renders words and letters if no input', () => {
-	    let words = ["a", "b"]
+	    let givenWords = ["a", "b"]
 	    let writtenWords = []
 	    let currentText = ""
 
 	    let renderer = TestUtils.createRenderer();
 	    renderer.render(
-	      <WordsContainer words={words} currentText={currentText} writtenWords={writtenWords} />
+	      <Words words={givenWords} currentText={currentText} writtenWords={writtenWords} />
 	    );
-	    let wordsContainer = renderer.getRenderOutput();
+	    let words = renderer.getRenderOutput();
 
-	    let word1 = wordsContainer.props.children[0];
+	    let word1 = words.props.children[0];
 	    expect(word1.props).toEqual({currentText:"", word: "a"});
 
-	    let word2 = wordsContainer.props.children[1]
+	    let word2 = words.props.children[1]
 	    expect(word2.props).toEqual({word: "b"});
 	    
   	});
 
   	it('renders words with correct colors depending on input', () => {
-	    let words = ["a", "b", "abc", "d"]
+	    let givenWords = ["a", "b", "abc", "d"]
 	    let writtenWords = ["a", "c"]
 	    let currentText = "ac"
 
 	    let renderer = TestUtils.createRenderer();
 	    renderer.render(
-	      <WordsContainer words={words} currentText={currentText} writtenWords={writtenWords} />
+	      <Words words={givenWords} currentText={currentText} writtenWords={writtenWords} />
 	    );
-	    let wordsContainer = renderer.getRenderOutput();
+	    let words = renderer.getRenderOutput();
 
-	    let correctWord = wordsContainer.props.children[0];
+	    let correctWord = words.props.children[0];
 	    expect(correctWord.props.children.props).toEqual({word: "a"});
 	    expect(correctWord.props.className).toEqual("speedTyperRightWord");
 
-		let incorrectWord = wordsContainer.props.children[1];
+		let incorrectWord = words.props.children[1];
 	    expect(incorrectWord.props.children.props).toEqual({word: "b"});
 	    expect(incorrectWord.props.className).toEqual("speedTyperWrongWord");
 
-	    let letters = wordsContainer.props.children[2];
+	    let letters = words.props.children[2];
 	    expect(letters.props).toEqual({currentText:"ac", word: "abc"});
 
 	    

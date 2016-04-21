@@ -1,6 +1,6 @@
 "user strict";
 var React = require('react');
-var Letter = require("../components/letter");
+var Letter = require("../components/Letter");
 var CurrentWord;
 
 

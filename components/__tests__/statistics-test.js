@@ -1,11 +1,11 @@
 "use strict";
 
-jest.unmock('../statistics');
+jest.unmock('../Statistics');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import Statistics from '../statistics';
+import Statistics from '../Statistics';
 
 describe('statistics', () => {
   var Wrapper = React.createClass({

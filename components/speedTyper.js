@@ -1,9 +1,12 @@
 "use strict";
 
 var React = require('react');
-import InputContainer from "../containers/inputContainer";
-import WordsContainer from "../containers/wordsContainer";
-import StatisticsContainer from "../containers/statisticsContainer";
+import InputContainer from "../containers/InputContainer";
+import WordsContainer from "../containers/WordsContainer";
+import StatisticsContainer from "../containers/StatisticsContainer";
+import GameButtonsContainer from "../containers/GameButtonsContainer";
+import HighscoreContainer from "../containers/HighscoreContainer";
+
 var SpeedTyper;
 
 module.exports = SpeedTyper = React.createClass({
@@ -13,6 +16,8 @@ module.exports = SpeedTyper = React.createClass({
 				<WordsContainer />
 				<InputContainer />
 				<StatisticsContainer />
+				<GameButtonsContainer />
+				<HighscoreContainer />
 			</div>	
 		);
 	}

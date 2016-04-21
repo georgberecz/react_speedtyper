@@ -1,7 +1,7 @@
 "use strict";
 var React = require('react');
-var Word = require("../components/word");
-var CurrentWord = require("./currentWord");
+var Word = require("../components/Word");
+var CurrentWord = require("./CurrentWord");
 var Words;
 
 module.exports = Words = React.createClass({
