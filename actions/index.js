@@ -31,7 +31,6 @@ export const stopGame = () => {
 export const updateGame = () => {
 	return {
 		type: "UPDATE_GAME",
-		payload: {time: Date.now()}	
 	} 
 }
 

@@ -57,13 +57,13 @@ const reducer = (state = initialState, action) => {
 			return state;
 		case 'UPDATE_GAME':
 			if (state.gameStarted) {
-				var counter = state.counter++;
-				return (R.merge(state, {counter: counter}))
+				var counter = R.add(state.counter,1);
+				return R.merge(state, {counter: counter});
 			} else 
 			return state;
 		case 'SET_WORDS':
 			var words = action.payload.words;
-			return R.merge(state, {words: words})
+			return R.merge(state, {words: words});
 		default:
 			return state;	
 	}

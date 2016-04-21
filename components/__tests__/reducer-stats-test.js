@@ -6,6 +6,7 @@ import {getWpm, getAccuracy} from '../../reducers';
 
 describe('statistics function', () => {
 	describe('getWpm', () => {
+		
 		var clock = null;
 
 		before(() => {
