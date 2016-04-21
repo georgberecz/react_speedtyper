@@ -6,9 +6,9 @@ import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
 	return {
-		wpm: getWpm(state),
-		accuracy: getAccuracy(state),
-		time: getElapsedTime(state)
+		wpm: getWpm(state.game),
+		accuracy: getAccuracy(state.game),
+		time: getElapsedTime(state.game)
 	};
 }
 

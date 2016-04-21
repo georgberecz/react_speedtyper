@@ -6,8 +6,8 @@ import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
 	return {
-		text: state.text,
-		gameStarted: state.gameStarted
+		text: state.game.text,
+		gameStarted: state.game.gameStarted
 	};
 };
 

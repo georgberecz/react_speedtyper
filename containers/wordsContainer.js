@@ -6,9 +6,9 @@ import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
 	return {
-		words: state.words,
-		writtenWords: state.writtenWords,
-		currentText: state.text
+		words: state.game.words,
+		writtenWords: state.game.writtenWords,
+		currentText: state.game.text
 	};
 }
 

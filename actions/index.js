@@ -1,4 +1,4 @@
-
+import ajaxRequest from './AjaxRequest'
 
 export const handleInputChange = (text) => {
 	return {
@@ -34,3 +34,44 @@ export const updateGame = () => {
 		payload: {time: Date.now()}	
 	} 
 }
+
+export const fetchPost = () => {
+  return (dispatch, getState) => {
+    const addWords = (wordObject) => {
+      if (getState().fetch.inProgress) {
+        dispatch(setWords(wordObject.words));
+        
+        dispatch(stopWordsFetch())
+      }
+    }
+
+    const onFetchError = (error) => {
+      dispatch(stopWordsFetch())
+    }
+
+    ajaxRequest("/words.json", "GET", addWords, onFetchError)
+  }
+}
+
+export const setWords = (words) => {
+	return {
+		type: "SET_WORDS",
+		payload: {words: words}
+	}
+}
+
+export const wordsFetchRequested = () => {
+  return {
+    type: "WORDS_FETCH_REQUESTED",
+    payload: {}
+  }
+}
+
+export const stopWordsFetch = () => {
+  return {
+    type: "WORDS_FETCH_STOPPED",
+    payload: {}
+  }
+}
+
+
