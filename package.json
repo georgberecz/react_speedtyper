@@ -23,6 +23,7 @@
     "bugger": "^2.3.0",
     "chai": "^3.5.0",
     "jest-cli": "^0.10.0",
+    "jsdom": "^8.4.0",
     "react-addons-test-utils": "^0.14.8",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"

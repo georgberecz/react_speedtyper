@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = (state) => {
 	return {
-		bestWps: state.game.bestWps,
+		bestWpm: state.game.bestWpm,
 		bestAccuracy: state.game.bestAccuracy
 	}
 };

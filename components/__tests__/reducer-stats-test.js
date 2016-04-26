@@ -1,5 +1,7 @@
 'use strict';
 
+global.sinon = require('sinon');
+
 jest.disableAutomock();
 
 import {getWpm, getAccuracy} from '../../reducers';
@@ -9,11 +11,11 @@ describe('statistics function', () => {
 		
 		var clock = null;
 
-		before(() => {
+		beforeEach(() => {
 			clock = sinon.useFakeTimers(new Date(2011,9,1).getTime());
 		});
 
-		after(() => {
+		afterEach(() => {
 			clock.restore();
 		});
 

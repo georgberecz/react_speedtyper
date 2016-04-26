@@ -8,7 +8,7 @@ describe('speedTyperApp reducer', () => {
   it('should handle initial state', () => {
     expect(speedTyperApp(undefined, {})).toEqual({
         bestAccuracy: 0,
-        bestWps: 0,
+        bestWpm: 0,
         counter: 0,
         words: [],
         text: "",
@@ -64,13 +64,13 @@ describe('speedTyperApp reducer', () => {
   it('should handle GAME_STOP', () => {
     var time = Date.now() - 1000*60;
     expect(
-      speedTyperApp({time: time, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWps:0, bestAccuracy:0}, 
+      speedTyperApp({time: time, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWpm:0, bestAccuracy:0}, 
         {type: 'GAME_STOP'})
     ).toEqual(
       {
         time: time,
         writtenWords: [],
-        bestWps: 1,
+        bestWpm: 1,
         bestAccuracy: 100,
         gameStarted: false,    
         words: ["blub"],
