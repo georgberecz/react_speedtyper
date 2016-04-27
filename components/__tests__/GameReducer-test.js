@@ -9,12 +9,12 @@ describe('speedTyperApp reducer', () => {
     expect(speedTyperApp(undefined, {})).toEqual({
         bestAccuracy: 0,
         bestWpm: 0,
-        counter: 0,
         words: [],
         text: "",
         writtenWords: [],
         gameStarted: false,
-        time: 0  
+        currentTime: 0,
+        startTime: 0  
     });
   });
 
@@ -48,27 +48,31 @@ describe('speedTyperApp reducer', () => {
 
   it('should handle GAME_START', () => {
     expect(
-      speedTyperApp({gameStarted: false, time: 10}, {
+      speedTyperApp({gameStarted: false, startTime: 10, currentTime: 5}, {
         type: 'GAME_START',
-        payload: {time: 10}})
+        payload: {startTime: 10}})
     ).toEqual(
       {
         text: "",
         writtenWords: [],
-        time: 10,
+        startTime: 10,
+        currentTime: 10,
         gameStarted: true,       
       }
     );
   });
 
   it('should handle GAME_STOP', () => {
-    var time = Date.now() - 1000*60;
+    var currentTime = Date.now();
+    var startTime = currentTime - 1000*60;
+    
     expect(
-      speedTyperApp({time: time, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWpm:0, bestAccuracy:0}, 
+      speedTyperApp({currentTime: currentTime, startTime:startTime, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWpm:0, bestAccuracy:0}, 
         {type: 'GAME_STOP'})
     ).toEqual(
       {
-        time: time,
+        currentTime: currentTime,
+        startTime: startTime,
         writtenWords: [],
         bestWpm: 1,
         bestAccuracy: 100,
@@ -80,12 +84,15 @@ describe('speedTyperApp reducer', () => {
   });
 
   it('should handle UPDATE_GAME', () => {
+    var currentTime = Date.now();
     expect(
-      speedTyperApp({gameStarted: true, counter: 0}, 
-        {type: 'UPDATE_GAME'})
+      speedTyperApp({gameStarted: true, currentTime: 0}, 
+        {type: 'UPDATE_GAME',
+         payload: {currentTime: currentTime}
+      })
     ).toEqual(
       {
-        counter: 1, 
+        currentTime: currentTime, 
         gameStarted: true,
       }
     );

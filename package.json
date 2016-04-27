@@ -15,7 +15,8 @@
     "react-dom": "^0.14.8",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "websocket": "^1.0.22"
   },
   "devDependencies": {
     "babel-jest": "^10.0.1",
@@ -24,6 +25,7 @@
     "chai": "^3.5.0",
     "jest-cli": "^0.10.0",
     "jsdom": "^8.4.0",
+    "mock-socket": "^2.0.0",
     "react-addons-test-utils": "^0.14.8",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
@@ -31,7 +33,7 @@
   "scripts": {
     "test": "jest",
     "test-debug": "node --harmony ./node_modules/bugger/bin/bugger.js ./node_modules/jest-cli/bin/jest.js --runInBand",
-    "start": "node_modules/beefy/bin/beefy main.js:bundle.js 3000  --index=index.html --live -- -t [ babelify --presets [ es2015 react ] ]"
+    "start": "node server.js & node_modules/beefy/bin/beefy main.js:bundle.js 3000  --index=index.html --live -- -t [ babelify --presets [ es2015 react ] ]"
   },
   "jest": {
     "scriptPreprocessor": "node_modules/babel-jest",

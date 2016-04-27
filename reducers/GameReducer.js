@@ -5,7 +5,8 @@ const initialWords = [];
 const initialText = "";
 const initialWrittenWords = [];
 const initialGameStarted = false;
-const initialTime = 0;
+const initialStartTime = 0;
+const initialCurrentTime = 0;
 const initialBestWps = 0;
 const initialBestAccuracy = 0;
 const initialCounter = 0;
@@ -15,12 +16,10 @@ const initialState = {
   text: initialText,
   writtenWords: initialWrittenWords,
   gameStarted: initialGameStarted,
-  time: initialTime,
+  startTime: initialStartTime,
   bestWpm: initialBestWps,
   bestAccuracy: initialBestAccuracy,
-  /* use counter to force re-rendering of statistic compontents, hope
-   there is a less "hacky" way for the future  */
-  counter: initialCounter 
+  currentTime: initialCurrentTime,
 }
 
 const reducer = (state = initialState, action) => {
@@ -39,11 +38,12 @@ const reducer = (state = initialState, action) => {
 			}
 		case 'GAME_START':
 			if (!(state.gameStarted)) {
-				var time = action.payload.time;
+				var startTime = action.payload.startTime;
 				return R.merge(state, {
 					writtenWords: [], 
 					text: "", 
-					time: time, 
+					startTime: startTime,
+					currentTime: startTime, 
 					gameStarted: true});	
 			} else return state;
 		case 'GAME_STOP':
@@ -57,8 +57,8 @@ const reducer = (state = initialState, action) => {
 			return state;
 		case 'UPDATE_GAME':
 			if (state.gameStarted) {
-				var counter = R.inc(state.counter);
-				return R.merge(state, {counter: counter});
+				var currentTime = action.payload.currentTime;
+				return R.merge(state, {currentTime: currentTime});
 			} else 
 			return state;
 		case 'SET_WORDS':

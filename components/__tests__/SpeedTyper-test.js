@@ -18,21 +18,32 @@ describe('SpeedTyper', () => {
     }
   });
 
-  var buildSpeedTyper = (() => {
+  var buildSpeedTyper = ((secondPlayerConnected) => {
     let dom = TestUtils.renderIntoDocument(
       <Wrapper>
-        <SpeedTyper />
+        <SpeedTyper secondPlayerConnected={secondPlayerConnected} />
       </Wrapper>
     );
-    return TestUtils.findRenderedDOMComponentWithClass(dom, "speedTyper")
+    return TestUtils.findRenderedDOMComponentWithClass(dom, "speedTyperGame")
   });
 
   it('renders SpeedTyper', () => {
-    let renderer = TestUtils.createRenderer();
-    renderer.render(
-      <SpeedTyper/>
-    );
-    let speedTyper = buildSpeedTyper(); //renderer.getRenderOutput();
-	  expect(speedTyper.className).toEqual("speedTyper");
+    
+    let speedTyper = buildSpeedTyper(true);
+	  expect(speedTyper.className).toEqual("speedTyperGame");
+    let visibleSpeedTyper = speedTyper.children[0].children[1]
+    expect(visibleSpeedTyper.className).toEqual("speedTyper ");
+  });
+
+  it('shows RemoteSpeedTyper if second Player connected', () => {
+    let speedTyper = buildSpeedTyper(true);
+    let visibleSpeedTyper = speedTyper.children[0].children[1]
+    expect(visibleSpeedTyper.className).toEqual("speedTyper ");
+  });
+
+  it('does not show RemoteSpeedTyper if second Player is not connected', () => {
+    let speedTyper = buildSpeedTyper(false);
+    let visibleSpeedTyper = speedTyper.children[0].children[1]
+    expect(visibleSpeedTyper.className).toEqual("speedTyper hidden");
   });
 });

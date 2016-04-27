@@ -1,7 +1,6 @@
 import * as actions from '../../actions'
-global.chai = require('chai');
-global.sinon = require('sinon');
 
+// make sinon,chai,etc. work with jest
 const jsdom = require('jsdom');
 
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
@@ -14,7 +13,7 @@ global.sinon = require('sinon');
 
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
-
+//
 
 jest.disableAutomock();
 
@@ -40,12 +39,12 @@ describe('speedTyperApp actions', () => {
   	});
 
   	it('speedTyperApp should create GAME_START action', () => {
-    	var time = Date.now();
+    	var startTime = Date.now();
     	let dispatch = sinon.stub()
     	actions.startGame()(dispatch)
     	expect(dispatch).to.have.been.calledWith({
       		type: 'GAME_START',
-      		payload: {time: time}
+      		payload: {startTime: startTime}
     	})
   	});
 
@@ -57,9 +56,11 @@ describe('speedTyperApp actions', () => {
     	})
   	});
 
-  	it('speedTyperApp should create INPUT_CHANGE action', () => {
+  	it('speedTyperApp should create UPDATE_GAME action', () => {
+    	var currentTime = Date.now()
     	expect(actions.updateGame()).to.eql({
-      		type: 'UPDATE_GAME'
+      		type: "UPDATE_GAME",
+      		payload: {currentTime: currentTime}
     	})
   	});
 
@@ -69,6 +70,27 @@ describe('speedTyperApp actions', () => {
       		payload: {words: ["blub", "blab"]}
     	})
   	});
+
+	it('speedTyperApp should create WORDS_FETCH_REQUESTED action', () => {
+    	expect(actions.wordsFetchRequested()).to.eql({
+      		type: 'WORDS_FETCH_REQUESTED',
+      		payload: {}
+    	})
+  	});
+
+  	it('speedTyperApp should create WORDS_FETCH_STOPPED action', () => {
+    	expect(actions.stopWordsFetch()).to.eql({
+      		type: 'WORDS_FETCH_STOPPED',
+      		payload: {}
+    	})
+  	});
+
+  	it('speedTyperApp should create RECEIVED_REMOTE_STATE action', () => {
+    	expect(actions.receivedRemoteState({blub:"blub"})).to.eql({
+      		type: 'RECEIVED_REMOTE_STATE',
+      		payload: {state: {blub:"blub"}}
+    	})
+  	});  	
 
   	describe('fetchPost', () => {
 		beforeEach(() => {

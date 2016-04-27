@@ -20,10 +20,11 @@ describe('statistics function', () => {
 		});
 
 		it('should calculate wpm correctly', () => {
+			let currentTime = Date.now()
 			let minute = 1000 * 60;
-    		let startTime = Date.now() - minute;
-			expect(getWpm({time: startTime, writtenWords:["a", "b"]})).toEqual(2);
-			expect(getWpm({time: startTime, writtenWords:["a", "b", "c", "d"]})).toEqual(4);
+    		let startTime = currentTime - minute;
+			expect(getWpm({startTime: startTime, currentTime:currentTime, writtenWords:["a", "b"], words:["a","c"]})).toEqual(1);
+			expect(getWpm({startTime: startTime, currentTime:currentTime, writtenWords:["a", "b", "c", "d"], words:["a", "b", "c", "d"]})).toEqual(4);
 		})
 	});
 
