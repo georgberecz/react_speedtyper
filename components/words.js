@@ -22,25 +22,25 @@ module.exports = Words = React.createClass({
 		this.props.words.forEach(function(word, i) {
 			if (i === currentWordIndex) {
 				single_words.push(
-					<CurrentWord word={word} currentText={currentText} />	
+					<CurrentWord word={word} currentText={currentText} key={i}/>	
 				);
 			} else {
 				if (i < writtenWords.length) {
 					if (word == writtenWords[i]) {
 						single_words.push(
-							<div className="speedTyperRightWord">
-								<Word word={word} />
+							<div className="speedTyperRightWord" key={i}>
+								<Word word={word} key={i}/>
 							</div>
 						);			
 					} else {
 						single_words.push(
-							<div className="speedTyperWrongWord">
-								<Word word={word} />
+							<div className="speedTyperWrongWord" key={i}>
+								<Word word={word} key={i}/>
 							</div>
 						);
 					}
 				} else {
-					single_words.push(<Word word={word} />);
+					single_words.push(<Word word={word} key={i}/>);
 				}
 			}
 		});

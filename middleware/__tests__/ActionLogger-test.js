@@ -1,6 +1,6 @@
 'use strict';
 
-import actionLogger from '../../middleware/ActionLogger'
+import actionLogger from '../ActionLogger'
 
 // make sinon,chai,etc. work with jest
 const jsdom = require('jsdom');

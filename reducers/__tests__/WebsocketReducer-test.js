@@ -1,7 +1,7 @@
 'use strict';
 
 jest.disableAutomock();
-import reducer from '../../reducers/WebsocketReducer';
+import reducer from '../WebsocketReducer';
 
 describe('WebsocketReducer reducer', () => {
   it('should handle initial state', () => {

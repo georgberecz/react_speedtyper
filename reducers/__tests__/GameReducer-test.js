@@ -1,7 +1,7 @@
 'use strict';
 
 jest.disableAutomock();
-import speedTyperApp from '../../reducers/GameReducer';
+import speedTyperApp from '../GameReducer';
 
 describe('speedTyperApp reducer', () => {
   

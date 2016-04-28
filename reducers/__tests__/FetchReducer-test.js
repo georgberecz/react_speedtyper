@@ -1,7 +1,7 @@
 'use strict';
 
 jest.disableAutomock();
-import reducer from '../../reducers/FetchReducer';
+import reducer from '../FetchReducer';
 
 describe('FetchReducer reducer', () => {
   it('should handle initial state', () => {

@@ -16,12 +16,12 @@ module.exports = CurrentWord = React.createClass ({
 		for (var i = 0; i < word.length; i++) {
 			if (i < currentText.length) {
 				if (word.charAt(i) == currentText.charAt(i)) {
-					singleCharacters.push(<Letter className="correctLetter" char={word.charAt(i)} />)
+					singleCharacters.push(<Letter className="correctLetter" char={word.charAt(i)} key={i} />)
 				} else {
-					singleCharacters.push(<Letter className="incorrectLetter" char={word.charAt(i)} />)
+					singleCharacters.push(<Letter className="incorrectLetter" char={word.charAt(i)} key={i} />)
 				}
 			} else {
-				singleCharacters.push(<Letter char={word.charAt(i)} />)
+				singleCharacters.push(<Letter char={word.charAt(i)} key={i}/>)
 			}
 
 		}
