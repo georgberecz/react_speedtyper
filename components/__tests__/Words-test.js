@@ -56,8 +56,5 @@ describe('Words', () => {
 
 	    let letters = words.props.children[2];
 	    expect(letters.props).toEqual({currentText:"ac", word: "abc"});
-
-	    
   	});
-
 });

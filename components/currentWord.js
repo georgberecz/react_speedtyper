@@ -37,5 +37,3 @@ module.exports = CurrentWord = React.createClass ({
 	}
 
 });
-
-

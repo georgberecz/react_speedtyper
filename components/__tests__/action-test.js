@@ -129,8 +129,5 @@ describe('speedTyperApp actions', () => {
 
 			expect(dispatch).not.to.have.been.calledWith(sinon.match({type: 'SET_WORDS'}))
 		})
-
 	})
 });
-
-

@@ -69,15 +69,3 @@ describe('gameButtons', () => {
         expect(stopButton.disabled).toEqual(true);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-

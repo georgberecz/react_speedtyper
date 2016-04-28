@@ -77,5 +77,3 @@ export const receivedRemoteState = (state) => {
     payload: {state: state}
   }
 }
-
-

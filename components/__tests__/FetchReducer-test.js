@@ -25,5 +25,4 @@ describe('FetchReducer reducer', () => {
         inProgress: false
     });
   });
-
 });

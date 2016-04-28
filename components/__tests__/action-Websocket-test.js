@@ -89,5 +89,4 @@ describe('Websocket actions', () => {
       expect(dispatch).to.not.have.been.called
     })
   })
-
 })

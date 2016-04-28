@@ -58,6 +58,3 @@ describe('ActionLogger', () => {
     expect(logger.log).to.have.been.calledWith(12)
   })
 })
-
-
-

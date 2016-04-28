@@ -59,5 +59,4 @@ describe('RemoteReducer reducer', () => {
       secondPlayerConnected: true
     });
   });
-
 });

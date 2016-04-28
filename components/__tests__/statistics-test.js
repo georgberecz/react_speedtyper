@@ -16,10 +16,10 @@ describe('statistics', () => {
     }
   });
 
-  var buildStatistics = ((accuracy, wpm) => {
+  var buildStatistics = ((accuracy, wpm, time) => {
     let dom = TestUtils.renderIntoDocument(
         <Wrapper>
-        	<Statistics accuracy={accuracy} wpm={wpm} />
+        	<Statistics accuracy={accuracy} wpm={wpm} time={time}/>
         </Wrapper>
     );
 
@@ -27,7 +27,7 @@ describe('statistics', () => {
   });
 
   it('sets statistics and class', () => {
-    let statistics = buildStatistics(10, 20);
+    let statistics = buildStatistics(10, 20, 1);
 	expect(statistics.className).toEqual("statistics");
     let accuracy = statistics.childNodes[1];
     expect(accuracy.textContent).toEqual("Accuracy: 10%")
