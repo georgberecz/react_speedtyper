@@ -3,13 +3,14 @@ import gameReducer from "./GameReducer"
 import fetchReducer from "./FetchReducer"
 import webSocketReducer from "./WebSocketReducer"
 import remoteReducer from "./RemoteReducer"
-
+import { routerReducer } from 'react-router-redux'
 
 const reducer = combineReducers({
 	game: gameReducer,
 	fetch: fetchReducer,
 	websocket: webSocketReducer,
-	remote: remoteReducer
+	remote: remoteReducer,
+	routing: routerReducer
 })
 
 export const getWpm = (state) => {

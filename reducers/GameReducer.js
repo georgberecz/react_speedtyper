@@ -1,5 +1,5 @@
 import R from 'ramda'
-import {getWpm, getAccuracy} from "./index"
+import {getWpm, getAccuracy, getElapsedTime} from "./index"
 
 const initialWords = [];
 const initialText = "";
@@ -10,6 +10,7 @@ const initialCurrentTime = 0;
 const initialBestWps = 0;
 const initialBestAccuracy = 0;
 const initialCounter = 0;
+const initialPastGames = [];
 
 const initialState = {
   words: initialWords,
@@ -20,6 +21,7 @@ const initialState = {
   bestWpm: initialBestWps,
   bestAccuracy: initialBestAccuracy,
   currentTime: initialCurrentTime,
+  pastGames: initialPastGames
 }
 
 const reducer = (state = initialState, action) => {
@@ -48,11 +50,14 @@ const reducer = (state = initialState, action) => {
 			} else return state;
 		case 'GAME_STOP':
 			if (state.gameStarted) {
-				var currentWps = getWpm(state);
+				var currentWpm = getWpm(state);
 				var currentAccuracy = getAccuracy(state);
-				var bestWpm = R.max(currentWps, state.bestWpm);
+				var bestWpm = R.max(currentWpm, state.bestWpm);
 				var bestAccuracy = R.max(currentAccuracy, state.bestAccuracy);
-				return R.merge(state, {gameStarted: false, bestWpm: bestWpm, bestAccuracy: bestAccuracy});	
+				var pastGames = state.pastGames;
+				var gameTime = getElapsedTime(state)
+				pastGames.push({accuracy: currentAccuracy, wpm: currentWpm, time: gameTime})
+				return R.merge(state, {gameStarted: false, bestWpm: bestWpm, bestAccuracy: bestAccuracy, pastGames: pastGames});	
 			}
 			return state;
 		case 'UPDATE_GAME':

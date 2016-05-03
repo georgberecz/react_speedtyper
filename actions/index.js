@@ -1,4 +1,5 @@
 import ajaxRequest from './AjaxRequest'
+import { browserHistory } from 'react-router'
 
 export const handleInputChange = (text) => {
 	return {
@@ -22,8 +23,12 @@ export const startGame = () => {
 }
 
 export const stopGame = () => {
+	browserHistory.push('/pastGames')
 	return (dispatch) => {
-		dispatch({type: "GAME_STOP"})
+		dispatch({
+			type: "GAME_STOP",
+			payload: {currentTime: Date.now()}
+		})
 		clearInterval(timer);
 	}
 }

@@ -9,18 +9,30 @@ import SpeedTyperGame from './components/SpeedTyperGame'
 import thunkMiddleware from 'redux-thunk'
 import actionLogger from './middleware/ActionLogger'
 import { websocketConnectionRequested, sendWebsocketMessage } from './actions/Websocket';
+import createRoutes from './Routes'
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
+import { routerMiddleware } from 'react-router-redux'
+import R from 'ramda'
 
-let store = createStore(
-	speedTyperApp, 
-	applyMiddleware(
-		thunkMiddleware,
-		actionLogger(window.console)
-	)
-);
+
+const finalCreateStore = R.compose(
+  applyMiddleware(
+    thunkMiddleware,
+    routerMiddleware(browserHistory)
+  ),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+)(createStore)
+
+let store = finalCreateStore(speedTyperApp);
+
+const history = syncHistoryWithStore(browserHistory, store)
+let Routes = createRoutes(history)
+
 
 render(
   	<Provider store={store}>
-  		<SpeedTyperGame />
+  		<Routes />
   	</Provider>,
   	document.getElementById('content')
 );

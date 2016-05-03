@@ -14,7 +14,8 @@ describe('speedTyperApp reducer', () => {
         writtenWords: [],
         gameStarted: false,
         currentTime: 0,
-        startTime: 0  
+        startTime: 0,
+        pastGames: []
     });
   });
 
@@ -67,8 +68,10 @@ describe('speedTyperApp reducer', () => {
     var startTime = currentTime - 1000*60;
     
     expect(
-      speedTyperApp({currentTime: currentTime, startTime:startTime, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWpm:0, bestAccuracy:0}, 
-        {type: 'GAME_STOP'})
+      speedTyperApp({currentTime: currentTime, startTime:startTime, words: ["blub"], writtenWords: ["blub"], gameStarted: true, bestWpm:0, bestAccuracy:0, pastGames:[]}, {
+        type: 'GAME_STOP',
+        payload: {currentTime: currentTime}
+      })
     ).toEqual(
       {
         currentTime: currentTime,
@@ -78,7 +81,8 @@ describe('speedTyperApp reducer', () => {
         bestAccuracy: 100,
         gameStarted: false,    
         words: ["blub"],
-        writtenWords: ["blub"]
+        writtenWords: ["blub"],
+        pastGames: [{accuracy: 100, time: 60, wpm: 1}]
       }
     );
   });

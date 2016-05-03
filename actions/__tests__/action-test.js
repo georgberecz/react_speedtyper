@@ -49,10 +49,12 @@ describe('speedTyperApp actions', () => {
   	});
 
   	it('speedTyperApp should create GAME_STOP action', () => {
-    	let dispatch = sinon.stub()
+    	var currentTime = Date.now();
+      let dispatch = sinon.stub()
     	actions.stopGame()(dispatch)
     	expect(dispatch).to.have.been.calledWith({
-      		type: 'GAME_STOP'
+      		type: 'GAME_STOP',
+          payload: {currentTime: currentTime}
     	})
   	});
 
