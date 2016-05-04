@@ -21,9 +21,9 @@ describe('speedTyperApp reducer', () => {
 
   it('should handle INPUT_CHANGE for incomplete word when game is started', () => {
   	expect(
-  		speedTyperApp({gameStarted: true}, {
+  		speedTyperApp({gameStarted: true, text:"blu"}, {
   			type: 'INPUT_CHANGE',
-  			payload: {text: "blub"}})
+  			payload: {text: "b"}})
   	).toEqual(
   		{
         text: "blub",
@@ -35,9 +35,9 @@ describe('speedTyperApp reducer', () => {
 
   it('should handle INPUT_CHANGE for complete word when game is started', () => {
   	expect(
-  		speedTyperApp({gameStarted: true}, {
+  		speedTyperApp({gameStarted: true, text:"blub"}, {
   			type: 'INPUT_CHANGE',
-  			payload: {text: "blub "}})
+  			payload: {text: " "}})
   	).toEqual(
   		{
         text: "",

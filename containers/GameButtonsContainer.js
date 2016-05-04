@@ -4,6 +4,7 @@ var GameButtons = require('../components/GameButtons.js')
 
 import { startGame, stopGame, wordsFetchRequested, fetchPost } from '../actions';
 import {connect} from "react-redux"
+import { push } from 'react-router-redux'
 
 const mapStateToProps = (state) => {
 	var wordsFetched = (state.game.words.length > 0)
@@ -17,7 +18,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onGameStartClick: () => dispatch(startGame()),
-    	onGameStopClick: () => dispatch(stopGame()),
+    	onGameStopClick: () => {
+    		dispatch(stopGame());
+    		dispatch(push('/pastGames'));
+    	},
     	onFetchWordsClick: () => {
     		dispatch(wordsFetchRequested())
       		dispatch(fetchPost())

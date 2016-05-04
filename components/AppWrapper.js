@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router';
+import GlobalKeysContainer from "../containers/GlobalKeysContainer"
 
 const LinkToGame = (_) => <Link to="/play">Game</Link>
 const LinkToPastGames = (_) => <Link to="/pastGames">Past Games</Link>
@@ -12,6 +13,7 @@ export default (props) => {
       <div> <LinkToGame/> </div>
       <div> <LinkToPastGames/> </div>
       <div> <LinkToAbout/> </div>
+      <GlobalKeysContainer />
       {props.children}
     </div>
   )

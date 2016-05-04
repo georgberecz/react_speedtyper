@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 		case 'INPUT_CHANGE':
 			if (state.gameStarted) {
 				var writtenWords = state.writtenWords == undefined ? [] : state.writtenWords;
-				var input = action.payload.text;
+				var input = state.text + action.payload.text;
 				if (input.substr(input.length-1) == " ") {
 					writtenWords.push(input.trim());
 					input = "";

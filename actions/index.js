@@ -23,7 +23,6 @@ export const startGame = () => {
 }
 
 export const stopGame = () => {
-	browserHistory.push('/pastGames')
 	return (dispatch) => {
 		dispatch({
 			type: "GAME_STOP",

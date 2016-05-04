@@ -28,6 +28,6 @@ describe('word', () => {
     it('sets word', () => {
         let word = buildWord("some text");
         let text = word.childNodes[0];
-	   expect(text.textContent).toEqual('some text');
+        expect(text.textContent).toEqual('some text');
     });
 });

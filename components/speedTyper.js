@@ -23,7 +23,7 @@ module.exports = SpeedTyper = React.createClass({
 				<div className ="speedTypers">	
 					<div className="speedTyper">
 						<WordsContainer />
-						<InputContainer />
+						
 						<StatisticsContainer />
 						<GameButtonsContainer />
 						<HighscoreContainer />
