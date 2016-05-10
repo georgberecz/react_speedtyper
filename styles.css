@@ -1,0 +1,50 @@
+.speedTyperGame {
+	
+}
+
+.speedTypers {
+	display: inline-flex;
+}
+
+.speedTyper {
+	border-style: double;
+	display: inline-block;
+	padding: 10px;
+	min-height: 200px;
+	min-width: 180px;
+}
+
+.globalHighscore {
+
+}
+
+.hidden {
+	display: none;
+}
+
+
+
+.speedTyperWords {
+	margin: 5px;
+	background: aliceblue;
+}
+
+.currentWord {
+	font-size: x-large;
+}
+
+.speedTyperWrongWord {
+	color: red;
+}
+
+.speedTyperRightWord {
+	color: green;
+}
+
+span.correctLetter {
+	color:green;
+}
+
+span.incorrectLetter {
+	color:red;
+}
